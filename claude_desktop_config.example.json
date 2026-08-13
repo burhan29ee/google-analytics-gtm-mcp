@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "google-analytics-gtm": {
+      "command": "/absolute/path/to/google-analytics-gtm-mcp/.venv/bin/python",
+      "args": ["-m", "google_analytics_gtm_mcp.server"],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "/absolute/path/to/service-account-key.json"
+      }
+    }
+  }
+}

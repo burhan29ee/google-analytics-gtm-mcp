@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "google-analytics-gtm-mcp"
+version = "0.1.0"
+description = "One MCP server for Google Analytics 4 AND Google Tag Manager, with read and write access: reports, realtime, custom dimensions/metrics, key events, audiences, Measurement Protocol, and full GTM tag/trigger/variable/version management."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Malik Burhan" }]
+keywords = ["mcp", "model-context-protocol", "google-analytics", "ga4", "google-tag-manager", "gtm", "analytics", "claude"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+  "mcp>=1.2,<2",
+  "google-analytics-data>=0.18",
+  "google-analytics-admin>=0.22",
+  "google-api-python-client>=2.100",
+  "google-auth>=2.30",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+google-analytics-gtm-mcp = "google_analytics_gtm_mcp.server:main"
+
+[project.urls]
+Homepage = "https://github.com/burhan29ee/google-analytics-gtm-mcp"
+Repository = "https://github.com/burhan29ee/google-analytics-gtm-mcp"
+Issues = "https://github.com/burhan29ee/google-analytics-gtm-mcp/issues"
+Changelog = "https://github.com/burhan29ee/google-analytics-gtm-mcp/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/google_analytics_gtm_mcp"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
